@@ -2,6 +2,9 @@
   --white: #fff;
   --black: #000;
   --dark-gray: #666;
+  --medium-gray: #999;
+  --light-gray: #eee;
+  --grid-width: min(calc(100% - 2rem), 75rem);
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 0.75rem;
@@ -9,6 +12,8 @@
   --space-xl: 1.5rem;
   --space-2xl: 1.75rem;
   --space-3xl: 2rem;
+  --font-family-chivo-mono: "Chivo Mono", monospace;
+  --font-family-frank-ruhl: "Frank Ruhl Libre", serif;
 }
 
 /* *********************************
@@ -19,10 +24,19 @@
   box-sizing: border-box;
 }
 
+*:focus-visible {
+  outline: 4px solid blue;
+  outline-offset: 6px;
+}
+
 body {
-  font-family: "Chivo Mono", monospace;
+  font-family: var(--font-family-chivo-mono);
   margin: 0;
   padding: 0;
+}
+
+section {
+  width: 100%;
 }
 
 img {
@@ -37,18 +51,23 @@ img {
 h1,
 h2,
 h3 {
-  font-family: "Frank Ruhl Libre", serif;
+  font-family: var(--font-family-frank-ruhl);
   line-height: 1.1;
 }
 
 h1 {
-  font-size: 2.75rem;
+  font-size: 2.65rem;
+  letter-spacing: -0.05rem;
   font-weight: 400;
 }
 
 h3 {
   font-size: 1rem;
   font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 }
 
 p {
@@ -57,28 +76,140 @@ p {
 }
 
 /* *********************************
-  Containers
+  Buttons
 ********************************* */
 
-.grid-container {
+button {
+  background-color: transparent;
+  border: 0.125rem solid var(--black);
+  border-radius: 2.5rem;
+
+  font-family: var(--font-family-chivo-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+
+  padding: 0.625rem 1.5rem;
+  cursor: pointer;
+  transition: 0.25s ease-out;
+  transition-property: background, box-shadow;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+
+  &.is-selected {
+    color: var(--white);
+    background-color: var(--black);
+  }
+
+  &:hover:not(.is-selected) {
+    background-color: var(--light-gray);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--medium-gray);
+    border-color: var(--medium-gray);
+  }
+}
+
+.button-group {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: min(calc(100% - 3rem), 75rem);
-  gap: var(--space-3xl);
-  padding: var(--space-3xl) 0;
-  margin: 0 auto;
+  flex-direction: row;
+  gap: var(--space-sm);
+  overflow: auto;
+
+  scroll-behavior: smooth;
+  scrollbar-width: 0.125rem;
+  scrollbar-color: var(--medium-gray);
+
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
 
   @media (min-width: 1025px) {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--space-3xl);
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  button {
+    @media (max-width: 767px) {
+      &:first-child {
+        margin-left: var(--space-lg);
+      }
+      &:last-child {
+        margin-right: var(--space-lg);
+      }
+    }
+
+    @media (min-width: 1025px) {
+      width: 100%;
+      flex: 1 1 100%;
+    }
   }
 }
 
 /* *********************************
-  Hero
+  Forms
 ********************************* */
+select {
+  font-family: "Chivo Mono";
+  font-size: 0.75rem;
+  text-align: right;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.875rem;
+  }
+}
+
+.select-label {
+  font-family: "Chivo Mono";
+  font-size: 0.75rem;
+  @media (min-width: 768px) {
+    font-size: 0.875rem;
+  }
+}
+
+/* *********************************
+  Containers
+********************************* */
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--space-xl);
+  margin: var(--space-lg) auto;
+
+  @media (min-width: 1025px) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: calc(var(--space-3xl) * 2);
+    width: var(--grid-width);
+    padding: calc(var(--space-3xl) * 2) 0;
+  }
+}
+
+/* *********************************
+  Intro + Hero
+********************************* */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+
+  @media (min-width: 1025px) {
+    max-width: 20rem;
+  }
+}
 
 .hero {
   display: flex;
@@ -86,7 +217,10 @@ p {
   flex-direction: column;
   justify-content: flex-end;
 
+  width: var(--grid-width);
+  max-width: 22rem;
   min-height: 24rem;
+
   background-color: #ccc;
   border-top-left-radius: 12rem;
   border-top-right-radius: 12rem;
@@ -97,7 +231,7 @@ p {
   overflow: hidden;
 
   @media (min-width: 1025px) {
-    min-width: 22rem;
+    width: 100%;
   }
 
   &:after {
@@ -128,6 +262,33 @@ p {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+/* *********************************
+  Meta information + Sorting
+********************************* */
+.park-content {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--space-md);
+  width: var(--grid-width);
+
+  @media (min-width: 1025px) {
+    width: 100%;
+  }
+
+  > * {
+    flex: 0 0 100%;
+  }
+}
+
+.park-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.park-results h3 {
+  margin: 0;
 }
 
 /* *********************************

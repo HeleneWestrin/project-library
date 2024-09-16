@@ -10,19 +10,43 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./images/favicon.png" />
     <title>Sweden's National Parks</title>
   </head>
   <body>
-    <main class="grid-container">
-      <header class="hero">
-        <h1 class="hero__title">Sweden's<br />National Parks</h1>
-        <img
-          alt="National park in Sweden by AI"
-          class="hero__image"
-          src="./images/swedish-national-parks.webp"
-        />
-      </header>
-      <section id="parks" class="cards"></section>
+    <main class="container">
+      <section class="intro">
+        <header class="hero">
+          <h1 class="hero__title">Sweden's<br />National Parks</h1>
+          <img
+            alt="A national park in Sweden by ChatGPT"
+            class="hero__image"
+            src="./images/swedish-national-parks.webp"
+          />
+        </header>
+        <section id="filters" class="filters">
+          <div id="filter-region" class="button-group">
+            <button class="is-selected" data-region="All">All</button>
+            <button data-region="North">Northern</button>
+            <button data-region="Central">Central</button>
+            <button data-region="South">South</button>
+          </div>
+        </section>
+      </section>
+      <section class="park-content">
+        <div id="park-meta" class="park-meta">
+          <div id="park-results" class="park-results"></div>
+          <div class="park-order-results">
+            <label for="sort-parks" class="select-label">Sort by:</label>
+            <select id="sort-parks">
+              <option value="alphabetical" selected>Alphabetical</option>
+              <option value="largest">Largest</option>
+              <option value="smallest">Smallest</option>
+            </select>
+          </div>
+        </div>
+        <section id="parks" class="cards"></section>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>
