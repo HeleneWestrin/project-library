@@ -1,6 +1,7 @@
 /* *********************************
   DOM selectors
 ********************************* */
+
 // Container for displaying parks
 const parksContainer = document.getElementById("parks");
 
@@ -241,7 +242,7 @@ let currentFilterKey = "regionGroup";
   Function to load parks into the DOM
 ********************************* */
 
-const loadParks = (parks) => {
+const renderParks = (parks) => {
   // Initialize an empty string to build up the HTML content
   let html = "";
 
@@ -260,6 +261,9 @@ const loadParks = (parks) => {
       </div> 
     `;
   });
+
+  // Update with number of parks currently displayed
+  parkResults.innerHTML = `<h3>${parks.length} parks</h3>`;
 
   // Update the parks container in the DOM with the generated HTML
   parksContainer.innerHTML = html;
@@ -291,24 +295,24 @@ const sortParks = (parks, sortOption) => {
 ********************************* */
 
 const updateParksDisplay = () => {
-  // Start with a copy of the array with all the parks
-  let filteredParks = [...nationalParksInSweden];
-
-  // If a specific filter is selected (not "All"), filter the parks
-  if (currentFilterValue !== "All") {
-    filteredParks = filteredParks.filter(
-      (park) => park[currentFilterKey] === currentFilterValue
-    );
+  // If filter is set to "All", use original array and sort it based on user settings.
+  if (currentFilterValue === "All") {
+    return renderParks(sortParks(nationalParksInSweden, currentSortOption)); // Execution stops here if true
   }
 
-  // Sort the filtered parks based on the current sort option
-  const sortedParks = sortParks(filteredParks, currentSortOption);
+  // Make a copy of the array with all the parks to not modify the original array
+  let filteredParks = [...nationalParksInSweden];
 
-  // Update with number of parks currently displayed
-  parkResults.innerHTML = `<h3>${sortedParks.length} parker</h3>`;
+  // If a specific filter is selected (not "All"), then filter the parks
+  filteredParks = filteredParks.filter((park) => {
+    return park[currentFilterKey] === currentFilterValue;
+  });
+
+  // Sort the filtered parks based on the current sort option
+  const filteredAndSortedParks = sortParks(filteredParks, currentSortOption);
 
   // Load the sorted and filtered parks into the DOM
-  loadParks(sortedParks);
+  renderParks(filteredAndSortedParks);
 };
 
 /* *********************************
@@ -321,6 +325,11 @@ const filterButtons = document.querySelectorAll("#filter-region button");
 // Add event listeners to each filter button
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    // If the user clicks the active filter, stop executing with return
+    if (currentFilterValue === button.dataset.region) {
+      return;
+    }
+
     // Remove the "is-selected" class from all buttons
     filterButtons.forEach((btn) => btn.classList.remove("is-selected"));
 
