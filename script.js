@@ -252,7 +252,7 @@ const renderParks = (parks) => {
       <div class="card">
         <div class="card__top">
           <span class="card__badge">${park.size} km²</span>
-          <img alt="Image of ${park.name}" class="card__image" src="/images/${park.image}">
+          <img width="250" height="300" alt="Image of ${park.name}" class="card__image" src="/images/${park.image}">
         </div>
         <div class="card__bottom">
           <h3 class="card__title">${park.name}</h3>
