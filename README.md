@@ -12,4 +12,4 @@ If I would have had more time I would have wanted to try adding a range slider w
 
 ## View it live
 
-swedensnationalparks.netlify.app[https://swedensnationalparks.netlify.app/]
+[swedensnationalparks.netlify.app](https://swedensnationalparks.netlify.app/)
