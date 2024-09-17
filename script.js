@@ -1,4 +1,13 @@
 /* *********************************
+  Constants
+********************************* */
+const FILTER_ALL = "All";
+const SORT_ALPHABETICAL = "alphabetical";
+const SORT_LARGEST = "largest";
+const SORT_SMALLEST = "smallest";
+const FILTER_KEY_REGION_GROUP = "regionGroup";
+
+/* *********************************
   DOM selectors & Variables
 ********************************* */
 
@@ -9,13 +18,13 @@ const parksContainer = document.getElementById("parks");
 const parkResults = document.getElementById("park-results");
 
 // Variable to store the current sort option selected by the user
-let currentSortOption = "alphabetical"; // Default value
+let currentSortOption = SORT_ALPHABETICAL; // Default value
 
 // Variable to store the current filter value selected by the user
-let currentFilterValue = "All"; // Default value
+let currentFilterValue = FILTER_ALL; // Default value
 
 // The key to filter parks by, e.g., "regionGroup"
-let currentFilterKey = "regionGroup";
+let currentFilterKey = FILTER_KEY_REGION_GROUP;
 
 /* *********************************
   Array with objects
@@ -28,6 +37,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "abisko-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/abisko-nationalpark/",
   },
   {
     name: "Björnlandet",
@@ -35,6 +46,8 @@ const nationalParksInSweden = [
     region: "Västerbotten",
     regionGroup: "North",
     image: "bjornlandet-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/bjornlandets-nationalpark/",
   },
   {
     name: "Blå Jungfrun",
@@ -42,6 +55,8 @@ const nationalParksInSweden = [
     region: "Kalmar",
     regionGroup: "South",
     image: "bla-jungfrun-nationalpark.webp",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/bla-jungrun-nationalpark/",
   },
   {
     name: "Dalby Söderskog",
@@ -49,6 +64,8 @@ const nationalParksInSweden = [
     region: "Skåne",
     regionGroup: "South",
     image: "dalby-soderskog-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/dalby-soderskog-nationalpark/",
   },
   {
     name: "Djurö",
@@ -56,6 +73,8 @@ const nationalParksInSweden = [
     region: "Västra Götaland",
     regionGroup: "Central",
     image: "djuro-nationalpark.webp",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/djuro-nationalpark/",
   },
   {
     name: "Fulufjället",
@@ -63,6 +82,8 @@ const nationalParksInSweden = [
     region: "Dalarna",
     regionGroup: "Central",
     image: "fulufjallet-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/fulufjallet-nationalpark/",
   },
   {
     name: "Färnebofjärden",
@@ -70,6 +91,8 @@ const nationalParksInSweden = [
     region: "Gävleborg",
     regionGroup: "Central",
     image: "farnebofjarden-nationalpark.webp",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/farnebofjarden-nationalpark/",
   },
   {
     name: "Garphyttan",
@@ -77,6 +100,8 @@ const nationalParksInSweden = [
     region: "Örebro",
     regionGroup: "Central",
     image: "garphyttan-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/garphyttan-nationalpark/",
   },
   {
     name: "Gotska Sandön",
@@ -84,6 +109,8 @@ const nationalParksInSweden = [
     region: "Gotland",
     regionGroup: "South",
     image: "gotska-sandon-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/gotska-sandon-nationalpark/",
   },
   {
     name: "Hamra",
@@ -91,6 +118,8 @@ const nationalParksInSweden = [
     region: "Gävleborg",
     regionGroup: "Central",
     image: "hamra-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/hamra-nationalpark/",
   },
   {
     name: "Haparanda Skärgård",
@@ -98,6 +127,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "haparanda-skardgards-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/haparanda-skargard-nationalpark/",
   },
   {
     name: "Kosterhavet",
@@ -105,6 +136,8 @@ const nationalParksInSweden = [
     region: "Västra Götaland",
     regionGroup: "South",
     image: "kosterhavets-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/kosterhavet-nationalpark/",
   },
   {
     name: "Muddus",
@@ -112,6 +145,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "muddus-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/muddus-nationalpark/",
   },
   {
     name: "Norra Kvill",
@@ -119,6 +154,8 @@ const nationalParksInSweden = [
     region: "Kalmar",
     regionGroup: "Central",
     image: "norra-kvill-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/norra-kvill-nationalpark/",
   },
   {
     name: "Padjelanta",
@@ -126,6 +163,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "padjelanta-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/padjelanta-nationalpark/",
   },
   {
     name: "Pieljekaise",
@@ -133,6 +172,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "pieljekaise-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/pieljekaise-nationalpark/",
   },
   {
     name: "Sarek",
@@ -140,6 +181,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "sarek-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/sarek-nationalpark/",
   },
   {
     name: "Skuleskogen",
@@ -147,6 +190,8 @@ const nationalParksInSweden = [
     region: "Västernorrland",
     regionGroup: "North",
     image: "skuleskogens-nationalpark.webp",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/skulekskogen-nationalpark/",
   },
   {
     name: "Sonfjället",
@@ -154,6 +199,8 @@ const nationalParksInSweden = [
     region: "Jämtland",
     regionGroup: "Central",
     image: "sonfjallets-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/sonfjallet-nationalpark/",
   },
   {
     name: "Stenshuvud",
@@ -161,6 +208,8 @@ const nationalParksInSweden = [
     region: "Skåne",
     regionGroup: "South",
     image: "stenshuvuds-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/stenshuvud-nationalpark/",
   },
   {
     name: "Stora Sjöfallet",
@@ -168,6 +217,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "stora-sjofallet-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/stora-sjofallet-nationalpark/",
   },
   {
     name: "Store Mosse",
@@ -175,6 +226,8 @@ const nationalParksInSweden = [
     region: "Jönköping",
     regionGroup: "South",
     image: "stora-mosse-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/stora-mosse-nationalpark/",
   },
   {
     name: "Söderåsen",
@@ -182,6 +235,8 @@ const nationalParksInSweden = [
     region: "Skåne",
     regionGroup: "South",
     image: "soderasen-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/soderasen-nationalpark/",
   },
   {
     name: "Tiveden",
@@ -189,6 +244,8 @@ const nationalParksInSweden = [
     region: "Västergötland",
     regionGroup: "Central",
     image: "tiveden-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/tiveden-nationalpark/",
   },
   {
     name: "Tresticklan",
@@ -196,6 +253,8 @@ const nationalParksInSweden = [
     region: "Västra Götaland",
     regionGroup: "Central",
     image: "tresticklan-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/tresticklan-nationalpark/",
   },
   {
     name: "Tyresta",
@@ -203,6 +262,8 @@ const nationalParksInSweden = [
     region: "Stockholm",
     regionGroup: "Central",
     image: "tyresta-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/tyresta-nationalpark/",
   },
   {
     name: "Töfsingdalen",
@@ -210,6 +271,8 @@ const nationalParksInSweden = [
     region: "Dalarna",
     regionGroup: "Central",
     image: "tofsingdalen-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/tofsingdalen-nationalpark/",
   },
   {
     name: "Vadvetjåkka",
@@ -217,6 +280,8 @@ const nationalParksInSweden = [
     region: "Norrbotten",
     regionGroup: "North",
     image: "vadvetjakka-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/vadvetjakka-nationalpark/",
   },
   {
     name: "Åsnen",
@@ -224,6 +289,8 @@ const nationalParksInSweden = [
     region: "Kronoberg",
     regionGroup: "South",
     image: "asnen-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/asnen-nationalpark/",
   },
   {
     name: "Ängsö",
@@ -231,6 +298,8 @@ const nationalParksInSweden = [
     region: "Västmanland",
     regionGroup: "Central",
     image: "angso-nationalpark.jpg",
+    externalLink:
+      "https://www.sverigesnationalparker.se/park/angso-nationalpark/",
   },
 ];
 
@@ -245,7 +314,7 @@ const renderParks = (parks) => {
   // Loop through each park in the array
   parks.forEach((park) => {
     html += `
-      <div class="card">
+      <a href="${park.externalLink}" target="_blank" class="card">
         <div class="card__top">
           <span class="card__badge">${park.size} km²</span>
           <img width="250" height="300" alt="Image of ${park.name}" class="card__image" src="/images/${park.image}">
@@ -274,11 +343,11 @@ const sortParks = (parks, sortOption) => {
   const parksCopy = [...parks];
 
   // Check which sort option is selected and sort accordingly
-  if (sortOption === "alphabetical") {
+  if (sortOption === SORT_ALPHABETICAL) {
     parksCopy.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortOption === "largest") {
+  } else if (sortOption === SORT_LARGEST) {
     parksCopy.sort((a, b) => b.size - a.size);
-  } else if (sortOption === "smallest") {
+  } else if (sortOption === SORT_SMALLEST) {
     parksCopy.sort((a, b) => a.size - b.size);
   }
 
@@ -292,7 +361,7 @@ const sortParks = (parks, sortOption) => {
 
 const updateParksDisplay = () => {
   // If filter is set to "All", use original array and sort it based on user settings.
-  if (currentFilterValue === "All") {
+  if (currentFilterValue === FILTER_ALL) {
     return renderParks(sortParks(nationalParksInSweden, currentSortOption)); // Execution stops here if true
   }
 
