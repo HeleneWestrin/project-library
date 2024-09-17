@@ -1,5 +1,5 @@
 /* *********************************
-  DOM selectors
+  DOM selectors & Variables
 ********************************* */
 
 // Container for displaying parks
@@ -7,6 +7,15 @@ const parksContainer = document.getElementById("parks");
 
 // Container for showing how many parks are visible
 const parkResults = document.getElementById("park-results");
+
+// Variable to store the current sort option selected by the user
+let currentSortOption = "alphabetical"; // Default value
+
+// Variable to store the current filter value selected by the user
+let currentFilterValue = "All"; // Default value
+
+// The key to filter parks by, e.g., "regionGroup"
+let currentFilterKey = "regionGroup";
 
 /* *********************************
   Array with objects
@@ -224,19 +233,6 @@ const nationalParksInSweden = [
     image: "angso-nationalpark.jpg",
   },
 ];
-
-/* *********************************
-  Variables to keep track of current state
-********************************* */
-
-// Variable to store the current sort option selected by the user
-let currentSortOption = "alphabetical"; // Default value
-
-// Variable to store the current filter value selected by the user
-let currentFilterValue = "All"; // Default value
-
-// The key to filter parks by, e.g., "regionGroup"
-let currentFilterKey = "regionGroup";
 
 /* *********************************
   Function to load parks into the DOM
