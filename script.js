@@ -56,7 +56,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "bla-jungfrun-nationalpark.webp",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/bla-jungrun-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/bla-jungfrun-nationalpark/",
   },
   {
     name: "Dalby Söderskog",
@@ -83,7 +83,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "fulufjallet-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/fulufjallet-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/fulufjallets-nationalpark/",
   },
   {
     name: "Färnebofjärden",
@@ -92,7 +92,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "farnebofjarden-nationalpark.webp",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/farnebofjarden-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/farnebofjardens-nationalpark/",
   },
   {
     name: "Garphyttan",
@@ -101,7 +101,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "garphyttan-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/garphyttan-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/garphyttans-nationalpark/",
   },
   {
     name: "Gotska Sandön",
@@ -110,7 +110,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "gotska-sandon-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/gotska-sandon-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/gotska-sandons-nationalpark/",
   },
   {
     name: "Hamra",
@@ -128,7 +128,7 @@ const nationalParksInSweden = [
     regionGroup: "North",
     image: "haparanda-skardgards-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/haparanda-skargard-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/haparanda-skargards-nationalpark/",
   },
   {
     name: "Kosterhavet",
@@ -137,7 +137,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "kosterhavets-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/kosterhavet-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/kosterhavets-nationalpark/",
   },
   {
     name: "Muddus",
@@ -146,7 +146,7 @@ const nationalParksInSweden = [
     regionGroup: "North",
     image: "muddus-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/muddus-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/muddus--muttos-nationalpark/",
   },
   {
     name: "Norra Kvill",
@@ -155,7 +155,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "norra-kvill-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/norra-kvill-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/norra-kvills-nationalpark/",
   },
   {
     name: "Padjelanta",
@@ -164,7 +164,7 @@ const nationalParksInSweden = [
     regionGroup: "North",
     image: "padjelanta-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/padjelanta-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/padjelanta--badjelannda-nationalpark/",
   },
   {
     name: "Pieljekaise",
@@ -191,7 +191,7 @@ const nationalParksInSweden = [
     regionGroup: "North",
     image: "skuleskogens-nationalpark.webp",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/skulekskogen-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/skuleskogens-nationalpark/",
   },
   {
     name: "Sonfjället",
@@ -200,7 +200,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "sonfjallets-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/sonfjallet-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/sonfjallets-nationalpark/",
   },
   {
     name: "Stenshuvud",
@@ -209,7 +209,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "stenshuvuds-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/stenshuvud-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/stenshuvuds-nationalpark/",
   },
   {
     name: "Stora Sjöfallet",
@@ -218,7 +218,7 @@ const nationalParksInSweden = [
     regionGroup: "North",
     image: "stora-sjofallet-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/stora-sjofallet-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/stora-sjofallets--stuor-muorkke-nationalpark/",
   },
   {
     name: "Store Mosse",
@@ -227,7 +227,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "stora-mosse-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/stora-mosse-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/store-mosse-nationalpark/",
   },
   {
     name: "Söderåsen",
@@ -236,7 +236,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "soderasen-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/soderasen-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/soderasens-nationalpark/",
   },
   {
     name: "Tiveden",
@@ -245,7 +245,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "tiveden-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/tiveden-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/tivedens-nationalpark/",
   },
   {
     name: "Tresticklan",
@@ -254,7 +254,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "tresticklan-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/tresticklan-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/tresticklans-nationalpark/",
   },
   {
     name: "Tyresta",
@@ -272,7 +272,7 @@ const nationalParksInSweden = [
     regionGroup: "Central",
     image: "tofsingdalen-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/tofsingdalen-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/tofsingdalens-nationalpark/",
   },
   {
     name: "Vadvetjåkka",
@@ -290,7 +290,7 @@ const nationalParksInSweden = [
     regionGroup: "South",
     image: "asnen-nationalpark.jpg",
     externalLink:
-      "https://www.sverigesnationalparker.se/park/asnen-nationalpark/",
+      "https://www.sverigesnationalparker.se/park/asnens-nationalpark/",
   },
   {
     name: "Ängsö",
