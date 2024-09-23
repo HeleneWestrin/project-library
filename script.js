@@ -26,6 +26,9 @@ let currentFilterValue = FILTER_ALL; // Default value
 // The key to filter parks by, e.g., "regionGroup"
 let currentFilterKey = FILTER_KEY_REGION_GROUP;
 
+// Global variable to store the current search term
+let currentSearchTerm = ""; // Default value is an empty string
+
 /* *********************************
   Array with objects
 ********************************* */
@@ -360,24 +363,30 @@ const sortParks = (parks, sortOption) => {
 ********************************* */
 
 const updateParksDisplay = () => {
-  // If filter is set to "All", use original array and sort it based on user settings.
-  if (currentFilterValue === FILTER_ALL) {
-    return renderParks(sortParks(nationalParksInSweden, currentSortOption)); // Execution stops here if true
+  // If filter is set to "All", use the original array and apply the search filter
+  let parksToDisplay = [...nationalParksInSweden];
+
+  // Apply region filter if not "All"
+  if (currentFilterValue !== FILTER_ALL) {
+    parksToDisplay = parksToDisplay.filter((park) => {
+      return park[currentFilterKey] === currentFilterValue;
+    });
   }
 
-  // Make a copy of the array with all the parks to not modify the original array
-  let filteredParks = [...nationalParksInSweden];
+  // If a search term is provided, filter the parks based on the search term
+  if (currentSearchTerm) {
+    parksToDisplay = parksToDisplay.filter((park) =>
+      JSON.stringify(park)
+        .toLowerCase()
+        .includes(currentSearchTerm.toLowerCase())
+    );
+  }
 
-  // If a specific filter is selected (not "All"), then filter the parks
-  filteredParks = filteredParks.filter((park) => {
-    return park[currentFilterKey] === currentFilterValue;
-  });
-
-  // Sort the filtered parks based on the current sort option
-  const filteredAndSortedParks = sortParks(filteredParks, currentSortOption);
+  // Sort the parks based on the current sort option
+  parksToDisplay = sortParks(parksToDisplay, currentSortOption);
 
   // Load the sorted and filtered parks into the DOM
-  renderParks(filteredAndSortedParks);
+  renderParks(parksToDisplay);
 };
 
 /* *********************************
@@ -422,6 +431,20 @@ sortSelect.addEventListener("change", () => {
   currentSortOption = sortSelect.value;
 
   // Update the parks display based on the new sort option
+  updateParksDisplay();
+});
+
+/* *********************************
+  Event listener for search input
+********************************* */
+
+const searchInput = document.getElementById("search-parks__input");
+
+searchInput.addEventListener("input", () => {
+  // Update the global search term
+  currentSearchTerm = searchInput.value;
+
+  // Update the parks display based on the search term
   updateParksDisplay();
 });
 
