@@ -85,6 +85,7 @@ p {
 ********************************* */
 
 button {
+  color: var(--black);
   background-color: transparent;
   border: 0.125rem solid var(--black);
   border-radius: 2.5rem;
@@ -159,6 +160,16 @@ button {
   Forms
 ********************************* */
 select {
+  -webkit-appearance: none; /* For WebKit browsers */
+  -moz-appearance: none; /* For Firefox */
+  appearance: none; /* Removes native styling */
+
+  background-image: url("images/arrow.svg"); /* Custom arrow icon */
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 0.875rem;
+  padding-right: 0.875rem;
+
   font-family: "Chivo Mono";
   font-size: 0.75rem;
   text-align: right;
