@@ -164,6 +164,7 @@ select {
   -moz-appearance: none; /* For Firefox */
   appearance: none; /* Removes native styling */
 
+  background-color: transparent;
   background-image: url("images/arrow.svg"); /* Custom arrow icon */
   background-repeat: no-repeat;
   background-position: right 0 center;
@@ -172,6 +173,7 @@ select {
 
   font-family: "Chivo Mono";
   font-size: 0.75rem;
+  color: var(--black);
   text-align: right;
   border: none;
   cursor: pointer;
