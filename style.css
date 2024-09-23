@@ -224,6 +224,8 @@ select {
   gap: var(--space-xl);
 
   @media (min-width: 1025px) {
+    position: sticky;
+    top: 2rem;
     max-width: 20rem;
   }
 }
