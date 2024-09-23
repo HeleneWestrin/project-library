@@ -124,10 +124,11 @@ button {
   flex-direction: row;
   gap: var(--space-sm);
   overflow: auto;
-
   scroll-behavior: smooth;
-  scrollbar-width: 0.125rem;
-  scrollbar-color: var(--medium-gray);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (min-width: 768px) {
     justify-content: center;
